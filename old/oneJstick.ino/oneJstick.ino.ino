@@ -10,12 +10,15 @@ int yValue = 0;
 
 void setup() {
   Serial.begin(115200);
-
+  Serial.print("setup() running on core ");
+  Serial.println(xPortGetCoreID());
   // Set the button pin as input with internal pull-up resistor
   pinMode(buttonPin, INPUT_PULLUP);
 }
 
 void loop() {
+  Serial.print("loop() running on core ");
+  Serial.println(xPortGetCoreID());
   // Read the state of the button (it will be LOW when pressed, High when not pressed)
   buttonState = digitalRead(buttonPin);
 
